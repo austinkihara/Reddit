@@ -1,0 +1,20 @@
+<div class="jumbotron">
+<h3>{{topic.user_name}} posted a topic:</h3>
+<blockquote>
+<h3><p class="text-success">{{topic.topic}}</p></h3>
+<h4>Description: {{topic.description}}</h4></blockquote><br>Comments:<br>
+
+<p ng-repeat="comment in topic.comments">{{comment.user_name}}: {{comment.comment}}
+
+<input type="submit" class="btn btn-xs" value ="+{{upvote.count}}" ng-click="upvote(comment.comment)">
+
+<input type="submit" class="btn btn-xs" value ="-{{downvote.count}}" ng-click="downvote(comment.comment)"></p><br>
+
+Post your answer here...<br>
+<input type="text" ng-model="new_comment.comment">
+<input type="hidden" ng-model="new_comment.user_name" ng-init="new_comment.user_name = user.first_name">
+<input type="hidden" ng-model="new_comment.user_id" ng-init="new_comment.user_id = user.user_id">
+<input type="hidden" ng-model="new_comment.upvote" ng-init="new_comment.upvote = 0">
+<input type="hidden" ng-model="new_comment.downvote" ng-init="new_comment.downvote = 0">
+<input type="submit" value="post" ng-click="addComment()">
+</div>
